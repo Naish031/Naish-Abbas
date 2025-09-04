@@ -1,0 +1,386 @@
+<section class="hero-section">
+  {% comment %} mobile view {% endcomment %}
+  <div class="mobile-text-container">
+    {% if section.settings.hero_heading != blank %}
+      <h1>{{ section.settings.hero_heading }}</h1>
+    {% else %}
+      <h1>The Gift Guide</h1>
+    {% endif %}
+    {% if section.settings.description != blank %}
+      <p>{{ section.settings.description }}</p>
+    {% else %}
+      <p>Discover Joy: Your Ultimate Holiday Gift Destination.</p>
+    {% endif %}
+  </div>
+
+  {% comment %} image container {% endcomment %}
+  <div class="mobile-hero-container">
+    <div class="image-container">
+      <img src="{{ 'mobile-hero-frame.png' | asset_url }}" alt="Hero Image" width="100%" height="auto">
+    </div>
+
+    <div class="button-container">
+      {% if section.settings.button_text != blank %}
+        <a class="btn" href="{{ section.settings.button_link | default: '#' }}"
+          ><span>
+            {{ section.settings.button_text }}
+          </span>
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" class="icon icon-arrow" viewBox="0 0 14 10">
+            <path fill="#fff" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
+          </svg>
+        </a>
+
+      {% else %}
+        <a class="btn" href="#"
+          ><span> Shop Now </span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" class="icon icon-arrow" viewBox="0 0 14 10">
+            <path fill="#fff" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="desktop-wrapper">
+    <div class="desktop-content-container">
+      <img
+        src="{{ 'desktop-hero-frame.png' | asset_url }}"
+        alt="Gift guide illustration"
+        width="100%"
+        height="auto"
+        loading="eager"
+      >
+    </div>
+
+    <div class="desktop-header-container">
+      {% if section.settings.hero_heading != blank %}
+        <h1>{{ section.settings.hero_heading }}</h1>
+      {% else %}
+        <h1>The Gift Guide</h1>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p>{{ section.settings.description }}</p>
+      {% else %}
+        <p>
+          Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts
+          to delight your loved ones this holiday season.
+        </p>
+      {% endif %}
+
+      <div class="desktop-button-container">
+        {% if section.settings.button_text != blank %}
+          <a href="#" class="btn">{{ section.settings.button_text }}</a>
+        {% else %}
+          <a href="#" class="btn">SHOP NOW</a>
+        {% endif %}
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" class="icon icon-arrow" viewBox="0 0 14 10">
+          <path fill="#ffffff" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  {% comment %} desktop version {% endcomment %}
+  <div class="footer-text">
+    {% if section.settings.footer_text != blank %}
+      <p>{{ section.settings.footer_text }}</p>
+    {% else %}
+      <p>SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR</p>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .mobile-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 49px;
+    padding: 0 16px;
+  }
+
+  .mobile-text-container h1 {
+    margin: 0;
+    font-family: Jost;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 30px;
+    letter-spacing: 0px;
+    text-align: center;
+  }
+
+  .mobile-text-container p {
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: 0px;
+    margin: 0px;
+  }
+
+  .mobile-hero-container {
+    position: relative;
+    width: 100%;
+    height: 264px;
+    overflow: hidden;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .button-container {
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: #000;
+    padding: 12px 20px;
+    max-width: 193px;
+    width: 100%;
+  }
+
+  .button-container .btn {
+    margin: 0;
+    font-family: Jost;
+    text-decoration: none;
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .button-container .btn span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #f5f5f5;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .footer-text {
+    width: 100%;
+    padding: 17px 40px;
+    background-color: #f5f5f5;
+  }
+
+  .footer-text p {
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 13.42px;
+    letter-spacing: 0px;
+    margin: 0;
+    color: #000;
+  }
+
+  .desktop-wrapper {
+    display: none;
+  }
+
+  @media screen and (min-width: 720px) {
+    .desktop-wrapper {
+      display: block;
+      position: relative;
+      width: 100%;
+    }
+
+    .mobile-text-container {
+      display: none;
+    }
+
+    .mobile-hero-container {
+      display: none;
+    }
+
+    .desktop-header-container {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 383px;
+      position: absolute;
+      bottom: 7%;
+      left: 5%;
+    }
+
+    .desktop-header-container h1 {
+      font-family: Jost;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 50px;
+      leading-trim: NONE;
+      line-height: 100%;
+      letter-spacing: 0px;
+      text-align: left;
+      margin: 0;
+    }
+
+    .desktop-header-container p {
+      font-family: Jost;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 18px;
+      leading-trim: NONE;
+      line-height: 140%;
+      letter-spacing: 0px;
+      vertical-align: middle;
+      text-align: left;
+      margin: 0px;
+    }
+
+    .desktop-button-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000;
+      gap: 10px;
+      padding: 13px 20px;
+    }
+
+    .desktop-button-container .btn {
+      margin: 0;
+      font-family: Jost;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 16px;
+      leading-trim: NONE;
+      line-height: 20.48px;
+      letter-spacing: 0px;
+      text-align: center;
+      vertical-align: middle;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #f5f5f5;
+    }
+  }
+
+  @media screen and (min-width: 720px) and (max-width: 900px) {
+    .desktop-header-container {
+      max-width: 343px;
+      gap: 16px;
+      bottom: 8%;
+    }
+
+    .desktop-header-container h1 {
+      font-family: Jost;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 35px;
+      leading-trim: NONE;
+      line-height: 100%;
+      letter-spacing: 0px;
+      text-align: left;
+      margin: 0;
+    }
+
+    .desktop-header-container p {
+      font-family: Jost;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 14px;
+      leading-trim: NONE;
+      line-height: 140%;
+      letter-spacing: 0px;
+      vertical-align: middle;
+      text-align: left;
+      margin: 0px;
+    }
+
+    .desktop-button-container .btn {
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .desktop-header-container {
+      width: 100%;
+      max-width: 483px;
+      bottom: 10%;
+      gap: 50px;
+    }
+    .desktop-header-container h1 {
+      font-family: Jost;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 70px;
+      leading-trim: NONE;
+      line-height: 100%;
+      letter-spacing: 0px;
+      text-align: left;
+    }
+    .desktop-header-container p {
+      font-family: Jost;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 20px;
+      leading-trim: NONE;
+      line-height: 140%;
+      letter-spacing: 0px;
+      vertical-align: middle;
+      text-align: left;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Section"
+    },
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Hero Heading",
+      "default": "The Gift Guide"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}
