@@ -31,21 +31,19 @@
   </div>
   <div class="gift-cta">
     {% if section.settings.gift_cta_text != blank %}
-      <button class="gift-button">
-        <a href="{{ section.settings.gift_cta_link |  default: '#' }}" class="gift-link">
-          {{- section.settings.gift_cta_text -}}
-        </a>
+      <a href="{{ section.settings.gift_cta_link |  default: '#' }}" class="gift-button gift-link">
+        {{- section.settings.gift_cta_text -}}
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-arrow" viewBox="0 0 14 10">
           <path fill="currentColor" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
         </svg>
-      </button>
+      </a>
     {% else %}
-      <button class="gift-button">
-        <a href="">choose gift</a>
+      <a href="#" class="gift-button">
+        choose gift
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-arrow" viewBox="0 0 14 10">
           <path fill="currentColor" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
         </svg>
-      </button>
+      </a>
     {% endif %}
   </div>
 </section>
@@ -209,10 +207,7 @@
       color: inherit;
     }
 
-    .gift-cta:hover::before,
-    .gift-cta:focus::before {
-      transform: scaleX(1);
-    }
+    /* hover/focus transform moved to a hover-capable media query below */
 
     .gift-cta:focus-visible {
       outline: 2px solid #000;
@@ -230,6 +225,26 @@
     .gift-cta:focus::before {
       transform: scaleX(1);
     }
+  }
+
+  /* Desktop-only hover (pointer: fine, supports hover) */
+  @media (hover: hover) and (pointer: fine) {
+    .gift-cta:hover::before,
+    .gift-cta:focus::before {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Touch & keyboard fallbacks: instant/snappier overlay */
+  .gift-cta:active::before,
+  .gift-cta:focus-within::before {
+    transform: scaleX(1);
+    transition-duration: 0.12s;
+  }
+
+  .gift-cta:focus-within {
+    outline: 2px solid #000;
+    outline-offset: 2px;
   }
 
   @media screen and (min-width: 1280px) {
