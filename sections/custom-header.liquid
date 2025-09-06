@@ -126,11 +126,6 @@
 
   .gift-cta {
     display: none;
-    grid-area: right;
-    justify-self: end;
-    background-color: #fff544;
-    color: #000;
-    padding: 11px 40px;
   }
 
   .gift-cta .gift-button {
@@ -148,13 +143,8 @@
     line-height: 20.48px;
     letter-spacing: 0px;
     text-align: center;
-    text-transform: uppercase;
   }
 
-  .gift-cta .gift-button a {
-    text-decoration: none;
-    color: #000;
-  }
   @media screen and (min-width: 720px) {
     .hamburger-menu {
       display: none;
@@ -174,9 +164,74 @@
     }
 
     .gift-cta {
-      display: block;
+      position: relative;
+      display: inline-flex;
+      grid-area: right;
+      justify-self: end;
+      background-color: #fff544;
+      color: #000;
+      padding: 11px 40px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* sliding black overlay */
+    .gift-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: #000;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.25s ease-in-out;
+      z-index: 0;
+      will-change: transform;
+    }
+
+    .gift-cta,
+    .gift-cta * {
+      position: relative;
+      color: inherit;
+      text-decoration: none;
+      text-transform: uppercase;
+      z-index: 1;
+      transition: color 0.1 ease-in-out;
+    }
+
+    .gift-cta:hover,
+    .gift-cta:focus {
+      background-color: transparent;
+      color: #fff;
+    }
+
+    .gift-cta .gift-button a {
+      color: inherit;
+    }
+
+    .gift-cta:hover::before,
+    .gift-cta:focus::before {
+      transform: scaleX(1);
+    }
+
+    .gift-cta:focus-visible {
+      outline: 2px solid #000;
+      outline-offset: 2px;
     }
   }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .gift-cta::before,
+    .gift-cta * {
+      transition: none !important;
+    }
+    .gift-cta:hover::before,
+    .gift-cta:focus::before {
+      transform: scaleX(1);
+    }
+  }
+
   @media screen and (min-width: 1280px) {
     .custom-header {
       padding: 10px 50px;

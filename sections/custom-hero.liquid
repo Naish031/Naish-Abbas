@@ -74,8 +74,8 @@
         {% else %}
           <a href="#" class="btn">SHOP NOW</a>
         {% endif %}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" class="icon icon-arrow" viewBox="0 0 14 10">
-          <path fill="#ffffff" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="icon icon-arrow" viewBox="0 0 14 10">
+          <path fill="currentColor" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
         </svg>
       </div>
     </div>
@@ -252,8 +252,59 @@
       justify-content: space-between;
       align-items: center;
       background-color: #000;
+      color: #fff;
       gap: 10px;
-      padding: 13px 20px;
+      padding: 11px 40px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* sliding yellow overlay */
+    .desktop-button-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: #fff544;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.25s ease-in-out;
+      z-index: 0;
+      will-change: transform;
+    }
+
+    .desktop-button-container,
+    .desktop-button-container * {
+      position: relative;
+      z-index: 1;
+      color: inherit;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.1s ease-in-out;
+    }
+
+    .desktop-button-container:hover,
+    .desktop-button-container:focus {
+      background-color: transparent;
+      color: #000;
+    }
+
+    .desktop-button-container svg,
+    .desktop-button-container svg path,
+    .desktop-button-container svg * {
+      fill: #fff !important; /* initial: white */
+    }
+
+    .desktop-button-container:hover svg,
+    .desktop-button-container:hover svg path,
+    .desktop-button-container:hover svg * {
+      fill: #000 !important; /* hover: black */
+    }
+
+    .desktop-button-container:hover::before,
+    .desktop-button-container:focus::before {
+      transform: scaleX(1);
     }
 
     .desktop-button-container .btn {
@@ -269,7 +320,26 @@
       vertical-align: middle;
       text-transform: uppercase;
       text-decoration: none;
-      color: #f5f5f5;
+      color: #fff !important; /* explicitly white initially */
+      transition: color 0.15s ease;
+      background: transparent;
+    }
+
+    /* text becomes black when overlay slides in */
+    .desktop-button-container:hover .btn,
+    .desktop-button-container:focus .btn {
+      color: #000 !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .desktop-button-container::before,
+      .desktop-button-container * {
+        transition: none !important;
+      }
+      .desktop-button-container:hover::before,
+      .desktop-button-container:focus::before {
+        transform: scaleX(1);
+      }
     }
   }
 
