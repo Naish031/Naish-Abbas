@@ -52,7 +52,6 @@
     </div>
 
     {% comment %} variants color plus size {% endcomment %}
-
     <div class="popup__variants-selectors">
       {% comment %} Color Selector {% endcomment %}
       <div class="popup__color-group">
@@ -68,22 +67,23 @@
         <div class="popup__size-trigger-wrapper">
           <div class="popup__size-trigger">Choose your size</div>
           <div class="popup__size-arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-arrow-down" viewBox="0 0 14 10">
+            <svg class="icon-arrow-down" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
               <path fill="currentColor" fill-rule="evenodd" d="M1.354 1.354a.5.5 0 0 1 .707 0L7 6.293l4.939-4.939a.5.5 0 1 1 .707.707l-5.293 5.293a.5.5 0 0 1-.707 0L1.354 2.061a.5.5 0 0 1 0-.707" clip-rule="evenodd"/>
             </svg>
           </div>
-        </div>
-        <div class="popup__size-options hidden">
-          <div class="popup__size-option">XS</div>
-          <div class="popup__size-option">S</div>
-          <div class="popup__size-option">M</div>
-          <div class="popup__size-option">L</div>
-          <div class="popup__size-option">XL</div>
+
+          <div class="popup__size-options is-open">
+            <div class="popup__size-option">XS</div>
+            <div class="popup__size-option">S</div>
+            <div class="popup__size-option">M</div>
+            <div class="popup__size-option">L</div>
+            <div class="popup__size-option">XL</div>
+          </div>
         </div>
       </div>
     </div>
 
-    {% comment %} <div class="popup__cta-container"> {% endcomment %}
+    \
     <button class="popup__cta">
       {% comment %} CTA button {% endcomment %}
       <a href="{{ section.settings.gift_cta_link |  default: '#' }}" class=""> ADD TO CART </a>
@@ -91,7 +91,6 @@
         <path d="M1.40918 5.25L0.65918 5.25L0.65918 6.75L1.40918 6.75L1.40918 5.25ZM35.639 6.53033C35.9319 6.23744 35.9319 5.76257 35.639 5.46967L30.866 0.696701C30.5731 0.403808 30.0983 0.403808 29.8054 0.696701C29.5125 0.989594 29.5125 1.46447 29.8054 1.75736L34.048 6L29.8054 10.2426C29.5125 10.5355 29.5125 11.0104 29.8054 11.3033C30.0983 11.5962 30.5731 11.5962 30.866 11.3033L35.639 6.53033ZM1.40918 6.75L35.1087 6.75L35.1087 5.25L1.40918 5.25L1.40918 6.75Z" fill="white"/>
       </svg>
     </button>
-    {% comment %} </div> {% endcomment %}
   </div>
 </section>
 
@@ -312,7 +311,6 @@
   .popup__size-group {
     display: flex;
     flex-direction: column;
-    flex: 1;
     gap: 5px;
   }
 
@@ -332,6 +330,7 @@
     cursor: pointer;
     width: 100%;
     padding: 0px 12px;
+    position: relative;
   }
 
   .popup__size-trigger {
@@ -354,25 +353,54 @@
     justify-content: center;
   }
 
-  /* .popup__cta-container {
-    background-color: #000000;
-    border: none;
+  .popup__size-options {
+    position: absolute;
+    left: -1px;
+    top: 100%;
     width: 100%;
-    padding: 12px 0;
-    margin-top: 50px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-  } */
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #000;
+    box-sizing: content-box;
+    z-index: 999;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform-origin: top center;
+    transform: translateY(-6px);
+    transition: max-height 260ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 200ms ease,
+      transform 220ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  }
 
-  /* .popup__cta {
-    background-color: transparent;
-    border: none;
-    width: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  } */
+  .popup__size-option {
+    width: 100%;
+    padding: 6px 12px;
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: #000000;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .popup__size-option:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .rotate-180 {
+    transform: rotate(180deg);
+    transition: transform 260ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  }
+
+  .popup__size-options.is-open {
+    max-height: 97px;
+    opacity: 1;
+    transform: translateY(0);
+    overflow-y: auto;
+  }
 
   .popup__cta {
     position: relative;
