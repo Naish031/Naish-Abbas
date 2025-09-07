@@ -30,6 +30,71 @@
   </div>
 </section>
 
+{% comment %} Popup Overlay - initially hidden (class name: hidden) {% endcomment %}
+<section class="popup-overlay ">
+  <div class="popup-modal">
+    {% comment %} close button {% endcomment %}
+    <div class="popup__close-button">&times;</div>
+
+    <div class="popup__content">
+      {% comment %} image container with image {% endcomment %}
+      <div class="popup__image-container">
+        {% comment %} image will go here {% endcomment %}
+      </div>
+
+      <div class="popup__content-container">
+        <h2 class="popup__product-title">Orange Wide Leg</h2>
+        <p class="popup__product-price">980,00€</p>
+        <p class="popup__product-description">
+          This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.
+        </p>
+      </div>
+    </div>
+
+    {% comment %} variants color plus size {% endcomment %}
+
+    <div class="popup__variants-selectors">
+      {% comment %} Color Selector {% endcomment %}
+      <div class="popup__color-group">
+        <label class="popup__color-label">Color:</label>
+        <div class="popup__color-options">
+          <div class="popup__color-option">BLACK</div>
+          <div class="popup__color-option">WHITE</div>
+        </div>
+      </div>
+
+      <div class="popup__size-group">
+        <label class="popup__size-label">Size:</label>
+        <div class="popup__size-trigger-wrapper">
+          <div class="popup__size-trigger">Choose your size</div>
+          <div class="popup__size-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-arrow-down" viewBox="0 0 14 10">
+              <path fill="currentColor" fill-rule="evenodd" d="M1.354 1.354a.5.5 0 0 1 .707 0L7 6.293l4.939-4.939a.5.5 0 1 1 .707.707l-5.293 5.293a.5.5 0 0 1-.707 0L1.354 2.061a.5.5 0 0 1 0-.707" clip-rule="evenodd"/>
+            </svg>
+          </div>
+        </div>
+        <div class="popup__size-options hidden">
+          <div class="popup__size-option">XS</div>
+          <div class="popup__size-option">S</div>
+          <div class="popup__size-option">M</div>
+          <div class="popup__size-option">L</div>
+          <div class="popup__size-option">XL</div>
+        </div>
+      </div>
+    </div>
+
+    {% comment %} <div class="popup__cta-container"> {% endcomment %}
+    <button class="popup__cta">
+      {% comment %} CTA button {% endcomment %}
+      <a href="{{ section.settings.gift_cta_link |  default: '#' }}" class=""> ADD TO CART </a>
+      <svg width="36" height="12" viewBox="0 0 36 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.40918 5.25L0.65918 5.25L0.65918 6.75L1.40918 6.75L1.40918 5.25ZM35.639 6.53033C35.9319 6.23744 35.9319 5.76257 35.639 5.46967L30.866 0.696701C30.5731 0.403808 30.0983 0.403808 29.8054 0.696701C29.5125 0.989594 29.5125 1.46447 29.8054 1.75736L34.048 6L29.8054 10.2426C29.5125 10.5355 29.5125 11.0104 29.8054 11.3033C30.0983 11.5962 30.5731 11.5962 30.866 11.3033L35.639 6.53033ZM1.40918 6.75L35.1087 6.75L35.1087 5.25L1.40918 5.25L1.40918 6.75Z" fill="white"/>
+      </svg>
+    </button>
+    {% comment %} </div> {% endcomment %}
+  </div>
+</section>
+
 <style>
   * {
     box-sizing: border-box;
@@ -110,6 +175,238 @@
     text-align: center;
     font-size: 18px;
     color: #666666;
+  }
+
+  /* Popup modal styles */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 450px;
+    max-width: 320px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .popup-modal {
+    position: relative;
+    background-color: #fff;
+    padding: 36px 20px 25px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .popup__close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .popup__content {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto 1fr;
+    gap: 8px;
+  }
+
+  .popup__image-container {
+    background-color: #666666;
+    aspect-ratio: 6/7;
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .popup__image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .popup__content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 11px;
+    max-width: 146px;
+    width: 100%;
+  }
+
+  .popup__product-title {
+    font-family: Jost;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+  }
+
+  .popup__product-price {
+    font-family: Lustria;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+  }
+
+  .popup__product-description {
+    font-family: Jost;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 110%;
+    color: #000000;
+    letter-spacing: -0.5px;
+  }
+
+  .popup__variants-selectors {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
+  .popup__color-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+  }
+
+  .popup__color-label {
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: #000000;
+  }
+
+  .popup__color-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+
+  .popup__color-option {
+    width: 100%;
+    border: 1px solid #000000;
+    padding: 6px 12px;
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: #000000;
+    cursor: pointer;
+  }
+
+  .popup__color-option:first-of-type {
+    border-right: none;
+  }
+
+  .popup__size-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+  }
+
+  .popup__size-label {
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: #000000;
+  }
+
+  .popup__size-trigger-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #000000;
+    cursor: pointer;
+    width: 100%;
+    padding: 0px 12px;
+  }
+
+  .popup__size-trigger {
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: #000000;
+    width: 80%;
+    border-right: 1px solid #000000;
+    padding: 6px 0;
+    box-sizing: border-box;
+  }
+
+  .popup__size-arrow {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* .popup__cta-container {
+    background-color: #000000;
+    border: none;
+    width: 100%;
+    padding: 12px 0;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+
+  /* .popup__cta {
+    background-color: transparent;
+    border: none;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  } */
+
+  .popup__cta {
+    position: relative;
+    background-color: #000000;
+    border: none;
+    width: 100%;
+    height: 100%;
+    max-height: 45px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .popup__cta a {
+    position: absolute;
+    text-decoration: none;
+    color: #ffffff;
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20.48px;
+    text-transform: uppercase;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .popup__cta svg {
+    position: absolute;
+    right: 10%;
+    width: 25px;
+    height: 10px;
+    color: #ffffff;
+    text-align: right;
   }
 
   /* media queries */
