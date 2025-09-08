@@ -31,7 +31,7 @@
 </section>
 
 {% comment %} Popup Overlay - initially hidden (class name: hidden) {% endcomment %}
-<section class="popup-overlay ">
+<section class="popup-overlay hidden">
   <div class="popup-modal">
     {% comment %} close button {% endcomment %}
     <div class="popup__close-button">&times;</div>
@@ -83,7 +83,6 @@
       </div>
     </div>
 
-    \
     <button class="popup__cta">
       {% comment %} CTA button {% endcomment %}
       <a href="{{ section.settings.gift_cta_link |  default: '#' }}" class=""> ADD TO CART </a>
