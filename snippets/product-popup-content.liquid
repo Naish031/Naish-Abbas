@@ -33,8 +33,12 @@
     <div class="popup__color-group">
       <label class="popup__color-label">{{ color_option.name }}:</label>
       <div class="popup__color-options">
+        <div class="color-slider"></div>
         {% for color in color_option.values %}
-          <div class="popup__color-option">{{ color }}</div>
+          <div class="popup__color-option" data-value="{{ color |  handle}}">
+            <span class="color-indicator-bar" style="background-color: {{ color | downcase }}"></span>
+            <span>{{ color }}</span>
+          </div>
         {% endfor %}
       </div>
     </div>

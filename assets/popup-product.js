@@ -89,4 +89,38 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  const initColorSliders = () => {
+    // Find all the color option containers within all popups
+    const colorGroups = document.querySelectorAll('.popup__color-options');
+
+    colorGroups.forEach((container) => {
+      const options = container.querySelectorAll('.popup__color-option');
+      const slider = container.querySelector('.color-slider');
+
+      if (!slider || !options.length) return;
+
+      options.forEach((option, index) => {
+        option.addEventListener('click', () => {
+          // On first click, just make the slider appear without transition
+          if (!container.querySelector('.active')) {
+            slider.style.transition = 'none';
+          } else {
+            slider.style.transition = 'transform 0.3s ease-in-out';
+          }
+
+          // Remove active class from all options
+          options.forEach((opt) => opt.classList.remove('active'));
+          // Add active class to the clicked one
+          option.classList.add('active');
+
+          // Calculate the new position for the slider
+          const newPosition = index * option.offsetWidth;
+          slider.style.transform = `translateX(${newPosition}px)`;
+          slider.style.opacity = '1';
+        });
+      });
+    });
+  };
+  initColorSliders();
 });
