@@ -32,7 +32,11 @@
     {%- for block in section.blocks -%}
       {%- assign product = block.settings.product -%}
       {%- if product != blank -%}
-        <section class="popup-overlay hidden" id="popup-{{ block.id }}">
+        <section
+          class="popup-overlay hidden"
+          id="popup-{{ block.id }}"
+          data-product-handle="{{ product.handle }}"
+          data-bonus-handle="dark-winter-jacket">
           <div class="popup-modal">
             {% render 'product-popup-content'
               , popup_product: product %}
