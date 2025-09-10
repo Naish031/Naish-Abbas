@@ -16,26 +16,46 @@
   {% comment %} image container {% endcomment %}
   <div class="mobile-hero-container">
     <div class="image-container">
-      <img src="{{ 'mobile-hero-frame.png' | asset_url }}" alt="Hero Image" width="100%" height="auto">
+      <img
+        src="{{ 'mobile-hero-frame.png' | asset_url }}"
+        alt="Hero Image"
+        width="100%"
+        height="auto">
     </div>
 
     <div class="button-container">
       {% if section.settings.button_text != blank %}
-        <a class="btn" href="{{ section.settings.button_link | default: '#' }}"
-          ><span>
+        <a class="btn" href="{{ section.settings.button_link | default: '#' }}">
+          <span>
             {{ section.settings.button_text }}
           </span>
 
-          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" class="icon icon-arrow" viewBox="0 0 14 10">
-            <path fill="#fff" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="13"
+            viewBox="0 0 26 13"
+            stroke-width="1.5"
+            class="icon icon-arrow"
+            fill="#F5F5F5">
+            <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="#F5F5F5" />
           </svg>
         </a>
 
       {% else %}
-        <a class="btn" href="#"
-          ><span> Shop Now </span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" class="icon icon-arrow" viewBox="0 0 14 10">
-            <path fill="#fff" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
+        <a class="btn" href="#">
+          <span>
+            Shop Now
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="13"
+            viewBox="0 0 26 13"
+            stroke-width="1.5"
+            class="icon icon-arrow"
+            fill="#F5F5F5">
+            <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="#F5F5F5" />
           </svg>
         </a>
       {% endif %}
@@ -49,8 +69,7 @@
         alt="Gift guide illustration"
         width="100%"
         height="auto"
-        loading="eager"
-      >
+        loading="eager">
     </div>
 
     <div class="desktop-header-container">
@@ -63,7 +82,7 @@
         <p>{{ section.settings.description }}</p>
       {% else %}
         <p>
-          Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts
+          Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts 
           to delight your loved ones this holiday season.
         </p>
       {% endif %}
@@ -71,16 +90,34 @@
       <div class="desktop-button-container">
         {% if section.settings.button_text != blank %}
           <a href="{{ section.settings.button_link | default: '#' }}" class="btn">
-            {{ section.settings.button_text }}
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="icon icon-arrow" viewBox="0 0 14 10">
-              <path fill="currentColor" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
+            <span>
+              {{ section.settings.button_text }}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="icon icon-arrow"
+              viewBox="0 0 14 10">
+              <path
+                fill="currentColor"
+                fill-rule="evenodd"
+                d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546"
+                clip-rule="evenodd" />
             </svg>
           </a>
         {% else %}
           <a href="#" class="btn">
-            SHOP NOW
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="icon icon-arrow" viewBox="0 0 14 10">
-              <path fill="currentColor" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
+            <span>
+              SHOP NOW
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="13"
+              viewBox="0 0 26 13"
+              stroke-width="1.5"
+              class="icon icon-arrow"
+              fill="currentColor">
+              <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="currentColor" />
             </svg>
           </a>
         {% endif %}
@@ -99,6 +136,12 @@
 </section>
 
 <style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
   .hero-section {
     text-align: center;
     display: flex;
@@ -114,15 +157,13 @@
     gap: 24px;
     margin-top: 49px;
     padding: 0 16px;
+    margin-bottom: 12px;
   }
 
   .mobile-text-container h1 {
-    margin: 0;
     font-family: Jost;
     font-weight: 500;
-    font-style: Medium;
     font-size: 30px;
-    letter-spacing: 0px;
     text-align: center;
   }
 
@@ -131,8 +172,6 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 130%;
-    letter-spacing: 0px;
-    margin: 0px;
   }
 
   .mobile-hero-container {
@@ -155,13 +194,13 @@
     transform: translateX(-50%);
     z-index: 10;
     background-color: #000;
-    padding: 12px 20px;
+    padding: 13px 20px;
     max-width: 193px;
     width: 100%;
+    /* display: inline-flex; // come back to this */
   }
 
   .button-container .btn {
-    margin: 0;
     font-family: Jost;
     text-decoration: none;
     display: inline-flex;
@@ -171,6 +210,12 @@
   }
 
   .button-container .btn span {
+    display: flex;
+    width: 119px;
+    height: 19px;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Jost;
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
@@ -180,9 +225,14 @@
     text-decoration: none;
   }
 
+  .button-container .btn svg {
+    fill: #f5f5f5;
+    width: 24px;
+  }
+
   .footer-text {
     width: 100%;
-    padding: 17px 40px;
+    padding: 17px 32px;
     background-color: #f5f5f5;
   }
 
@@ -191,8 +241,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 13.42px;
-    letter-spacing: 0px;
-    margin: 0;
     color: #000;
   }
 
@@ -236,9 +284,8 @@
       font-size: 50px;
       leading-trim: NONE;
       line-height: 100%;
-      letter-spacing: 0px;
+      letter-spacing: 0;
       text-align: left;
-      margin: 0;
     }
 
     .desktop-header-container p {
@@ -246,12 +293,8 @@
       font-weight: 400;
       font-style: Regular;
       font-size: 18px;
-      leading-trim: NONE;
       line-height: 140%;
-      letter-spacing: 0px;
-      vertical-align: middle;
       text-align: left;
-      margin: 0px;
     }
 
     .desktop-button-container {
@@ -265,7 +308,8 @@
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      transition: color 0.3s ease, background-color 0.3s ease;
+      transition: color 0.3s ease
+      , background-color 0.3s ease;
     }
 
     /* sliding yellow overlay */
@@ -300,13 +344,15 @@
     .desktop-button-container svg,
     .desktop-button-container svg path,
     .desktop-button-container svg * {
-      fill: #fff !important; /* initial: white */
+      fill: #fff !important;
+      /* initial: white */
     }
 
     .desktop-button-container:hover svg,
     .desktop-button-container:hover svg path,
     .desktop-button-container:hover svg * {
-      fill: #000 !important; /* hover: black */
+      fill: #000 !important;
+      /* hover: black */
     }
 
     /* hover/focus transform moved to a hover-capable media query below */
@@ -319,12 +365,13 @@
       font-size: 16px;
       leading-trim: NONE;
       line-height: 20.48px;
-      letter-spacing: 0px;
+      letter-spacing: 0;
       text-align: center;
       vertical-align: middle;
       text-transform: uppercase;
       text-decoration: none;
-      color: #fff !important; /* explicitly white initially */
+      color: #fff !important;
+      /* explicitly white initially */
       transition: color 0.15s ease;
       background: transparent;
     }
@@ -367,7 +414,7 @@
     outline-offset: 2px;
   }
 
-  @media screen and (min-width: 720px) and (max-width: 900px) {
+  @media screen and (min-width: 720px) and(max-width: 900px) {
     .desktop-header-container {
       max-width: 343px;
       gap: 16px;
@@ -379,11 +426,8 @@
       font-weight: 500;
       font-style: Medium;
       font-size: 35px;
-      leading-trim: NONE;
       line-height: 100%;
-      letter-spacing: 0px;
       text-align: left;
-      margin: 0;
     }
 
     .desktop-header-container p {
@@ -391,12 +435,8 @@
       font-weight: 400;
       font-style: Regular;
       font-size: 14px;
-      leading-trim: NONE;
       line-height: 140%;
-      letter-spacing: 0px;
-      vertical-align: middle;
       text-align: left;
-      margin: 0px;
     }
 
     .desktop-button-container .btn {
@@ -416,9 +456,7 @@
       font-weight: 500;
       font-style: Medium;
       font-size: 70px;
-      leading-trim: NONE;
       line-height: 100%;
-      letter-spacing: 0px;
       text-align: left;
     }
     .desktop-header-container p {
@@ -426,55 +464,50 @@
       font-weight: 400;
       font-style: Regular;
       font-size: 20px;
-      leading-trim: NONE;
       line-height: 140%;
-      letter-spacing: 0px;
-      vertical-align: middle;
       text-align: left;
     }
   }
 </style>
 
 {% schema %}
-{
-  "name": "Hero Section",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Hero Section"
-    },
-    {
-      "type": "text",
-      "id": "hero_heading",
-      "label": "Hero Heading",
-      "default": "The Gift Guide"
-    },
-    {
-      "type": "richtext",
-      "id": "description",
-      "label": "Description"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button Text",
-      "default": "Shop Now"
-    },
-    {
-      "type": "text",
-      "id": "footer_text",
-      "label": "Footer Text"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Hero"
-    }
-  ]
-}
+  {
+    "name": "Hero Section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Hero Section"
+      },
+      {
+        "type": "text",
+        "id": "hero_heading",
+        "label": "Hero Heading",
+        "default": "The Gift Guide"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Shop Now"
+      }, {
+        "type": "text",
+        "id": "footer_text",
+        "label": "Footer Text"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero"
+      }
+    ]
+  }
 {% endschema %}

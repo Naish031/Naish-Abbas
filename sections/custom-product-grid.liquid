@@ -59,7 +59,7 @@
     max-width: 1440px;
     // Need to come back to this
     margin: 0 auto;
-    padding: 40px 16px;
+    padding: 40px 16px 23px;
   }
 
   .product-grid__title {
@@ -75,7 +75,7 @@
   .product-grid__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 4px;
   }
 
   .product-grid__item {
@@ -152,8 +152,8 @@
     padding: 36px 20px 25px;
     width: 100%;
     height: 100%;
-    max-height: 450px;
-    max-width: 320px;
+    max-height: 447px;
+    max-width: 311px;
   }
 
   .popup__close-button {
@@ -215,16 +215,16 @@
   }
 
   .popup__product-description {
+    color: #000;
     font-family: Jost;
+    font-size: 12px;
     font-weight: 300;
-    font-size: 14px;
     line-height: 110%;
-    color: #000000;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.12px;
   }
 
   .popup__variants-selectors {
-    margin-top: 20px;
+    margin-top: 10px;
     display: grid;
     grid-template-columns: 1fr;
     gap: 11px;
@@ -270,15 +270,18 @@
   .popup__color-option {
     width: 100%;
     padding: 11px 15px;
-    font-family: Jost;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 100%;
-    color: #000000;
     cursor: pointer;
     position: relative;
     z-index: 2;
     transition: color 0.3s ease;
+    color: #000;
+    font-family: Jost;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: -0.36px;
+    text-transform: capitalize;
 
     display: flex;
     align-items: center;
@@ -330,7 +333,7 @@
   .popup__size-trigger {
     font-family: Jost;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 130%;
     color: #000000;
     width: 80%;
