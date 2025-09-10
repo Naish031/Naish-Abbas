@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   initColorSliders();
 
-  // Need to add product to our cart
+  // Adding Product to Cart Logic
 
   // Fetch product from shopify by handle
   async function fetchProductByHandle(handle) {
@@ -300,9 +300,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Success feedback
         popup.classList.add('hidden');
         alert('Item added to cart!');
-        document.dispatchEvent(
-          new CustomEvent('cart:added', { detail: result })
-        );
       } catch (err) {
         console.error('Error during add to cart:', err);
         alert(err.message || 'Something went wrong adding to cart.');

@@ -71,56 +71,56 @@
         height="auto"
         loading="eager">
     </div>
-
-    <div class="desktop-header-container">
-      {% if section.settings.hero_heading != blank %}
-        <h1>{{ section.settings.hero_heading }}</h1>
-      {% else %}
-        <h1>The Gift Guide</h1>
-      {% endif %}
-      {% if section.settings.description != blank %}
-        <p>{{ section.settings.description }}</p>
-      {% else %}
-        <p>
-          Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts 
-          to delight your loved ones this holiday season.
-        </p>
-      {% endif %}
-
-      <div class="desktop-button-container">
-        {% if section.settings.button_text != blank %}
-          <a href="{{ section.settings.button_link | default: '#' }}" class="btn">
-            <span>
-              {{ section.settings.button_text }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              class="icon icon-arrow"
-              viewBox="0 0 14 10">
-              <path
-                fill="currentColor"
-                fill-rule="evenodd"
-                d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546"
-                clip-rule="evenodd" />
-            </svg>
-          </a>
+    <div class="desktop-content-wrapper">
+      <div class="desktop-header-container">
+        {% if section.settings.hero_heading != blank %}
+          <h1>{{ section.settings.hero_heading }}</h1>
         {% else %}
-          <a href="#" class="btn">
-            <span>
-              SHOP NOW
-            </span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="13"
-              viewBox="0 0 26 13"
-              stroke-width="1.5"
-              class="icon icon-arrow"
-              fill="currentColor">
-              <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="currentColor" />
-            </svg>
-          </a>
+          <h1>The Gift Guide</h1>
         {% endif %}
+        {% if section.settings.description != blank %}
+          <p>{{ section.settings.description }}</p>
+        {% else %}
+          <p>
+            Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts 
+          to delight your loved ones this holiday season.
+          </p>
+        {% endif %}
+
+        <div class="desktop-button-container">
+          {% if section.settings.button_text != blank %}
+            <a href="{{ section.settings.button_link | default: '#' }}" class="btn">
+              <span>
+                {{ section.settings.button_text }}</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="13"
+                viewBox="0 0 26 13"
+                stroke-width="1.5"
+                class="icon icon-arrow"
+                fill="#F5F5F5">
+                <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="#F5F5F5" />
+              </svg>
+            </a>
+          {% else %}
+            <a href="#" class="btn">
+              <span>
+                SHOP NOW
+              </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="13"
+                viewBox="0 0 26 13"
+                stroke-width="1.5"
+                class="icon icon-arrow"
+                fill="#F5F5F5">
+                <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="#F5F5F5" />
+              </svg>
+            </a>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
@@ -147,7 +147,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1440px;
+    max-width: 3088px;
     margin: 0 auto;
   }
 
@@ -194,19 +194,18 @@
     transform: translateX(-50%);
     z-index: 10;
     background-color: #000;
-    padding: 13px 20px;
+    padding: 10px 20px;
     max-width: 193px;
     width: 100%;
     /* display: inline-flex; // come back to this */
   }
 
   .button-container .btn {
-    font-family: Jost;
-    text-decoration: none;
     display: inline-flex;
     gap: 10px;
     align-items: center;
     justify-content: space-between;
+    text-decoration: none;
   }
 
   .button-container .btn span {
@@ -227,7 +226,8 @@
 
   .button-container .btn svg {
     fill: #f5f5f5;
-    width: 24px;
+    width: clamp(24px, 1.5vw, 60px);
+    height: auto;
   }
 
   .footer-text {
@@ -248,52 +248,50 @@
     display: none;
   }
 
-  @media screen and (min-width: 720px) {
+  @media screen and (min-width: 768px) {
     .desktop-wrapper {
       display: block;
       position: relative;
       width: 100%;
     }
 
-    .mobile-text-container {
-      display: none;
+    .desktop-content-wrapper {
+      position: relative;
+      max-width: 3088px;
+      margin: 0 auto;
+      height: 100%;
     }
 
+
+    .mobile-text-container,
     .mobile-hero-container {
       display: none;
     }
 
     .desktop-header-container {
-      margin: 0;
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      padding-left: 16px;
       display: flex;
       flex-direction: column;
       gap: 20px;
-      justify-content: space-between;
-      align-items: flex-start;
-      width: 100%;
-      max-width: 383px;
-      position: absolute;
-      bottom: 7%;
-      left: 5%;
+      max-width: clamp(300px, 35vw, 1183px);
     }
 
     .desktop-header-container h1 {
       font-family: Jost;
       font-weight: 500;
-      font-style: Medium;
-      font-size: 50px;
-      leading-trim: NONE;
+      font-size: clamp(30px, 4vw, 165px);
       line-height: 100%;
-      letter-spacing: 0;
       text-align: left;
     }
 
     .desktop-header-container p {
       font-family: Jost;
       font-weight: 400;
-      font-style: Regular;
-      font-size: 18px;
-      line-height: 140%;
+      font-size: clamp(14px, 1.4vw, 47px);
+      line-height: 120%;
       text-align: left;
     }
 
@@ -303,13 +301,15 @@
       align-items: center;
       background-color: #000;
       color: #fff;
-      gap: 10px;
-      padding: 11px 40px;
+      gap: 20px;
+      padding: 11px 25px;
       position: relative;
       overflow: hidden;
       cursor: pointer;
       transition: color 0.3s ease
       , background-color 0.3s ease;
+      width: clamp(180px, 13vw, 518px);
+      height: clamp(40px, 3.5vw, 118px);
     }
 
     /* sliding yellow overlay */
@@ -345,35 +345,39 @@
     .desktop-button-container svg path,
     .desktop-button-container svg * {
       fill: #fff !important;
-      /* initial: white */
+      width: clamp(24px, 1.5vw, 60px);
+      height: auto;
     }
 
     .desktop-button-container:hover svg,
     .desktop-button-container:hover svg path,
     .desktop-button-container:hover svg * {
       fill: #000 !important;
-      /* hover: black */
     }
 
     /* hover/focus transform moved to a hover-capable media query below */
 
     .desktop-button-container .btn {
-      margin: 0;
-      font-family: Jost;
-      font-weight: 400;
-      font-style: Regular;
-      font-size: 16px;
-      leading-trim: NONE;
-      line-height: 20.48px;
-      letter-spacing: 0;
-      text-align: center;
-      vertical-align: middle;
-      text-transform: uppercase;
-      text-decoration: none;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       color: #fff !important;
-      /* explicitly white initially */
       transition: color 0.15s ease;
       background: transparent;
+    }
+
+    .desktop-button-container .btn span {
+      width: clamp(100px, 8vw, 205px);
+      height: 19px;
+      font-family: Jost;
+      font-weight: 400;
+      font-size: clamp(14px, 1.4vw, 37px);
+      line-height: 19px;
+      color: inherit;
+      /* inherits white initially */
+      text-transform: uppercase;
+      text-decoration: none;
     }
 
     /* text becomes black when overlay slides in */
@@ -414,60 +418,66 @@
     outline-offset: 2px;
   }
 
-  @media screen and (min-width: 720px) and(max-width: 900px) {
+  @media screen and (min-width: 1024px) {
     .desktop-header-container {
-      max-width: 343px;
-      gap: 16px;
-      bottom: 8%;
-    }
-
-    .desktop-header-container h1 {
-      font-family: Jost;
-      font-weight: 500;
-      font-style: Medium;
-      font-size: 35px;
-      line-height: 100%;
-      text-align: left;
+      bottom: 30px;
+      gap: 30px;
     }
 
     .desktop-header-container p {
-      font-family: Jost;
-      font-weight: 400;
-      font-style: Regular;
-      font-size: 14px;
       line-height: 140%;
-      text-align: left;
-    }
-
-    .desktop-button-container .btn {
-      font-size: 14px;
     }
   }
 
   @media screen and (min-width: 1280px) {
     .desktop-header-container {
       width: 100%;
-      max-width: 483px;
-      bottom: 10%;
-      gap: 50px;
+      padding-left: 50px;
+      gap: clamp(50px, 3.75vw, 120px);
+      max-width: clamp(300px, 38vw, 1183px);
     }
+
     .desktop-header-container h1 {
-      font-family: Jost;
-      font-weight: 500;
-      font-style: Medium;
       font-size: 70px;
-      line-height: 100%;
-      text-align: left;
-    }
-    .desktop-header-container p {
-      font-family: Jost;
-      font-weight: 400;
-      font-style: Regular;
-      font-size: 20px;
       line-height: 140%;
-      text-align: left;
+    }
+
+    .desktop-button-container {
+      width: 220px;
+      height: 50px;
+    }
+
+    .footer-text p {
+      font-size: 16px;
+    }
+
+    .product-grid-section {
+      padding: 10px 50px;
     }
   }
+
+  @media screen and (min-width: 1920px) {
+    .desktop-header-container {
+      max-width: clamp(300px, 38vw, 1183px);
+    }
+
+    .desktop-header-container h1 {
+      font-size: clamp(30px, 5vw, 165px);
+    }
+
+    .desktop-button-container {
+      width: clamp(180px, 13vw, 518px);
+      height: clamp(40px, 3.5vw, 118px);
+    }
+
+    .desktop-button-container .btn span {
+      width: clamp(100px, 8vw, 205px);
+      font-size: clamp(14px, 1.4vw, 37px);
+    }
+
+
+  }
+
 </style>
 
 {% schema %}
