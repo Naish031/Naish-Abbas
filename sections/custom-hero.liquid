@@ -82,7 +82,7 @@
           <p>{{ section.settings.description }}</p>
         {% else %}
           <p>
-            Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts 
+            Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts
           to delight your loved ones this holiday season.
           </p>
         {% endif %}
@@ -310,6 +310,8 @@
       , background-color 0.3s ease;
       width: clamp(180px, 13vw, 518px);
       height: clamp(40px, 3.5vw, 118px);
+      outline: none;
+      border: none;
     }
 
     /* sliding yellow overlay */
@@ -447,8 +449,14 @@
       height: 50px;
     }
 
+    .footer-text {
+      padding-top: clamp(17px, 1.5vw, 26px);
+      padding-bottom: clamp(17px, 1.5vw, 26px);
+    }
+
     .footer-text p {
-      font-size: 16px;
+      font-size: clamp(14px, 1.2vw, 42px);
+      line-height: 100%;
     }
 
     .product-grid-section {
@@ -471,10 +479,9 @@
     }
 
     .desktop-button-container .btn span {
-      width: clamp(100px, 8vw, 205px);
+      width: clamp(100px, 11vw, 295px);
       font-size: clamp(14px, 1.4vw, 37px);
     }
-
 
   }
 
