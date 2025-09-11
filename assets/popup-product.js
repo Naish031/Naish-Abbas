@@ -91,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const initColorSliders = () => {
-    // Find all the color option containers within all popups
     const colorGroups = document.querySelectorAll('.popup__color-options');
 
     colorGroups.forEach((container) => {
@@ -109,9 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
             slider.style.transition = 'transform 0.3s ease-in-out';
           }
 
-          // Remove active class from all options
+          // Remove active class from all options then add to clicked
           options.forEach((opt) => opt.classList.remove('active'));
-          // Add active class to the clicked one
           option.classList.add('active');
 
           // Calculate the new position for the slider
@@ -138,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // add items to cart
-
   async function addToCart(items) {
     const response = await fetch('/cart/add.js', {
       method: 'POST',
@@ -300,6 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Success feedback
         popup.classList.add('hidden');
         alert('Item added to cart!');
+        window.location.reload();
       } catch (err) {
         console.error('Error during add to cart:', err);
         alert(err.message || 'Something went wrong adding to cart.');

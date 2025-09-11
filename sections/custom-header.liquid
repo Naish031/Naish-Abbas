@@ -57,7 +57,7 @@
             src="{{ section.settings.logo_image | image_url: width: 150 }}"
             alt="Company Logo"
             width="{{ section.settings.logo_image.width }}"
-            height="{{ section.settings.logo_image.height }}" />
+            height="{{ section.settings.logo_image.height}}" />
         </div>
       {% else %}
         <span>TISSO VISON</span>
@@ -72,7 +72,7 @@
     </div>
     <div class="gift-cta">
       {% if section.settings.gift_cta_text != blank %}
-        <a href="{{ section.settings.gift_cta_link |  default: '#' }}" class="gift-button gift-link">
+        <a href="{{ section.settings.gift_cta_link |  default: '#' }}" class="gift-button">
           <span>{{- section.settings.gift_cta_text -}}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,6 @@
             height="13"
             viewBox="0 0 26 13"
             stroke-width="1.5"
-            class="icon icon-arrow"
             fill="none">
             <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="currentColor" />
           </svg>
@@ -94,7 +93,6 @@
             height="13"
             viewBox="0 0 26 13"
             stroke-width="1.5"
-            class="icon icon-arrow"
             fill="none">
             <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="currentColor" />
           </svg>
@@ -118,7 +116,6 @@
             height="13"
             viewBox="0 0 26 13"
             stroke-width="1.5"
-            class="icon icon-arrow"
             fill="none">
             <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="currentColor" />
           </svg>
@@ -133,7 +130,6 @@
             height="13"
             viewBox="0 0 26 13"
             stroke-width="1.5"
-            class="icon icon-arrow"
             fill="none">
             <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="currentColor" />
           </svg>
@@ -263,6 +259,10 @@
     color: #000;
   }
 
+  .gift-cta {
+    display: none;
+  }
+
   .gift-message {
     display: none;
     grid-area: center;
@@ -277,26 +277,6 @@
     text-align: center;
     color: #000000;
     margin: 0;
-  }
-
-  .gift-cta {
-    display: none;
-  }
-
-  .gift-cta .gift-button {
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    display: inline-flex;
-    gap: 5px;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    font-family: Jost;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20.48px;
-    text-align: center;
   }
 
   .mobile-nav-menu .mobile-gift-cta {
@@ -394,14 +374,11 @@
     }
 
     .gift-cta {
-      position: relative;
       display: inline-flex;
       grid-area: right;
       justify-self: end;
       background-color: #fff544;
-      color: #000;
       padding: 11px 25px;
-      overflow: hidden;
       cursor: pointer;
       transition: color 0.3s ease
       , background-color 0.3s ease;
@@ -409,16 +386,32 @@
       height: clamp(40px, 3.5vw, 118px);
     }
 
-    .gift-button.gift-link span {
+    .gift-button {
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      display: inline-flex;
+      gap: 10px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .gift-button span {
       width: 100%;
       font-size: clamp(14px, 1.4vw, 37px);
       line-height: 19px;
       font-weight: 400;
       text-transform: uppercase;
       text-decoration: none;
+      font-family: Jost;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20.48px;
+      text-align: center;
+      color: #000;
     }
 
-    .gift-button.gift-link svg {
+    .gift-button svg {
       width: clamp(24px, 1.5vw, 60px);
       height: auto;
     }
@@ -532,6 +525,11 @@
     .gift-cta {
       width: clamp(240px, 15vw, 518px);
       height: clamp(40px, 3.5vw, 118px);
+    }
+
+    .gift-button svg {
+      width: clamp(24px, 1.5vw, 60px);
+      height: auto;
     }
 
 
