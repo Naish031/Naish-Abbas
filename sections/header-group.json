@@ -34,10 +34,9 @@
       "type": "custom-header",
       "name": "Custom Header",
       "settings": {
-        "logo_image": "shopify://shop_images/young-man-in-bright-fashion_925x_b3b7ebd6-c91f-496a-a516-45403497ea25.webp",
-        "gift_message": "Description",
+        "gift_message": "Find the ideal gift for your loved ones.",
         "gift_cta_link": "",
-        "gift_cta_text": ""
+        "gift_cta_text": "CHOOSE NOW"
       }
     }
   },
