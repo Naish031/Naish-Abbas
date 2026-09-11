@@ -1,0 +1,86 @@
+{% comment %}
+  This snippet renders the content for a single product popup.
+  - It accepts a 'popup_product' object.
+{% endcomment %}
+
+<div class="popup__close-button">&times;</div>
+
+<div class="popup__content">
+  <div class="popup__image-container">
+    {% if popup_product.featured_image %}
+      <img
+        src="{{ popup_product.featured_image | image_url: width: 300 }}"
+        alt="{{ popup_product.featured_image.alt | escape }}"
+        width="{{ popup_product.featured_image.width }}"
+        height="{{ popup_product.featured_image.height }}"
+        loading="eager">
+    {% endif %}
+  </div>
+
+  <div class="popup__content-container">
+    <h2 class="popup__product-title">{{ popup_product.title }}</h2>
+    <p class="popup__product-price">{{ popup_product.price | money }}</p>
+    <p class="popup__product-description">
+      {{ popup_product.description | strip_html }}
+    </p>
+  </div>
+</div>
+
+<div class="popup__variants-selectors">
+  {%- assign color_option = popup_product.options_with_values | where: 'name', 'Color' | first -%}
+  {% if color_option %}
+    <div class="popup__color-group">
+      <label class="popup__color-label">{{ color_option.name }}:</label>
+      <div class="popup__color-options">
+        <div class="color-slider"></div>
+        {% for color in color_option.values %}
+          <div class="popup__color-option" data-value="{{ color |  handle}}">
+            <span class="color-indicator-bar" style="background-color: {{ color | downcase }}"></span>
+            <span class="text">{{ color }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  {%- assign size_option = popup_product.options_with_values | where: 'name', 'Size' | first -%}
+
+  {% if size_option %}
+    <div class="popup__size-group">
+      <label class="popup__size-label">{{ size_option.name }}:</label>
+      <div class="popup__size-trigger-wrapper">
+        <div class="popup__size-trigger">Choose your size</div>
+        <div class="popup__size-arrow">
+          <svg
+            class="icon-arrow-down"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10">
+            <path
+              fill="currentColor"
+              fill-rule="evenodd"
+              d="M1.354 1.354a.5.5 0 0 1 .707 0L7 6.293l4.939-4.939a.5.5 0 1 1 .707.707l-5.293 5.293a.5.5 0 0 1-.707 0L1.354 2.061a.5.5 0 0 1 0-.707"
+              clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div class="popup__size-options">
+          {% for size in size_option.values %}
+            <div class="popup__size-option">{{ size }}</div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<button class="popup__cta">
+  <a href="#">ADD TO CART</a>
+  <svg
+    width="36"
+    height="12"
+    viewBox="0 0 36 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path d="M1.40918 5.25L0.65918 5.25L0.65918 6.75L1.40918 6.75L1.40918 5.25ZM35.639 6.53033C35.9319 6.23744 35.9319 5.76257 35.639 5.46967L30.866 0.696701C30.5731 0.403808 30.0983 0.403808 29.8054 0.696701C29.5125 0.989594 29.5125 1.46447 29.8054 1.75736L34.048 6L29.8054 10.2426C29.5125 10.5355 29.5125 11.0104 29.8054 11.3033C30.0983 11.5962 30.5731 11.5962 30.866 11.3033L35.639 6.53033ZM1.40918 6.75L35.1087 6.75L35.1087 5.25L1.40918 5.25L1.40918 6.75Z" fill="white" />
+  </svg>
+</button>

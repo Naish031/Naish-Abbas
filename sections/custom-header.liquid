@@ -1,0 +1,576 @@
+<section
+  class="custom-header"
+  role="banner"
+  aria-label="Custom Header">
+  <div class="header-bar-content">
+    <div class="hamburger-menu">
+      <button
+        class="hamburger-button"
+        aria-label="Menu"
+        aria-expanded="false"
+        aria-controls="MobileNavMenu">
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="13"
+          viewBox="0 0 20 13"
+          class="icon icon-hamburger"
+          fill="currentColor">
+          <path
+            d="M1 6.5H19"
+            stroke="black"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path
+            d="M1 1.5H19"
+            stroke="black"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path
+            d="M1 11.5H19"
+            stroke="black"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          class="icon icon-close"
+          viewBox="0 0 18 16"
+          width="18"
+          height="16"
+          role="img"
+          aria-hidden="true">
+          <path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z" />
+        </svg>
+      </button>
+    </div>
+    <div class="logo">
+      {% if section.settings.logo_image != blank %}
+        <div class="logo-image">
+          <img
+            src="{{ section.settings.logo_image | image_url: width: 150 }}"
+            alt="Company Logo"
+            width="{{ section.settings.logo_image.width }}"
+            height="{{ section.settings.logo_image.height}}" />
+        </div>
+      {% else %}
+        <span>TISSO VISON</span>
+      {% endif %}
+    </div>
+    <div class="gift-message">
+      {% if section.settings.gift_message != blank %}
+        <p>{{ section.settings.gift_message }}</p>
+      {% else %}
+        <p>Find the ideal gift for your loved ones.</p>
+      {% endif %}
+    </div>
+    <div class="gift-cta">
+      {% if section.settings.gift_cta_text != blank %}
+        <a href="{{ section.settings.gift_cta_link |  default: '#' }}" class="gift-button">
+          <span>{{- section.settings.gift_cta_text -}}</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="13"
+            viewBox="0 0 26 13"
+            stroke-width="1.5"
+            fill="none">
+            <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="currentColor" />
+          </svg>
+        </a>
+      {% else %}
+        <a href="#" class="gift-button">
+          <span>choose gift</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="13"
+            viewBox="0 0 26 13"
+            stroke-width="1.5"
+            fill="none">
+            <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="currentColor" />
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="mobile-nav-menu" id="MobileNavMenu">
+    <p class="mobile-nav__text">{{ section.settings.gift_message }}</p>
+    <div class="mobile-gift-cta">
+      {% if section.settings.gift_cta_text != blank %}
+        <a href="{{ section.settings.gift_cta_link |  default: '#' }}" class="mobile-gift-button">
+          <span>
+            {{- section.settings.gift_cta_text -}}
+          </span>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="13"
+            viewBox="0 0 26 13"
+            stroke-width="1.5"
+            fill="none">
+            <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="currentColor" />
+          </svg>
+        </a>
+      {% else %}
+        <a href="#" class="mobile-gift-button">
+          <span>
+            choose gift</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="13"
+            viewBox="0 0 26 13"
+            stroke-width="1.5"
+            fill="none">
+            <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="currentColor" />
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .custom-header {
+    position: relative;
+    background-color: #f7f7f7;
+  }
+
+  .header-bar-content {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: 'left center right';
+    padding: 23px 16px;
+    align-items: center;
+    position: relative;
+    z-index: 20;
+    background-color: #f7f7f7;
+    max-width: 3088px;
+    margin: 0 auto;
+  }
+
+  .mobile-nav-menu {
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #f2f2f2;
+    transition: max-height 0.3s ease-in-out
+    , padding 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .mobile-nav__text {
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.42px;
+    text-align: center;
+  }
+
+  .mobile-nav-menu.is-open {
+    max-height: 130px;
+    padding: 25px 16px;
+  }
+
+  .hamburger-button .icon-close {
+    display: none;
+  }
+
+  /* swap icons when hamburger is toggled open (apply on all viewports) */
+  .hamburger-button.is-open .icon-hamburger {
+    display: none;
+  }
+
+  .hamburger-button.is-open .icon-close {
+    display: inline-block;
+  }
+
+  .hamburger-menu {
+    grid-area: left;
+    justify-self: start;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hamburger-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: #000;
+  }
+
+  .logo {
+    grid-area: center;
+    justify-self: center;
+  }
+
+  .logo .logo-image {
+    width: 100%;
+    max-width: 430px;
+    overflow: hidden;
+    position: relative;
+    height: auto;
+    aspect-ratio: 5 / 1;
+  }
+
+  .logo img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .logo span {
+    font-family: 'Jost';
+    font-weight: 600;
+    font-size: clamp(20px, 2.5vw, 50px);
+    line-height: 19px;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+  }
+
+  .gift-cta {
+    display: none;
+  }
+
+  .gift-message {
+    display: none;
+    grid-area: center;
+    justify-self: center;
+  }
+
+  .gift-message p {
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.42px;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+  }
+
+  .mobile-nav-menu .mobile-gift-cta {
+    position: relative;
+    display: none;
+    grid-area: right;
+    justify-self: end;
+    background-color: #fff544;
+    color: #000;
+    padding: 11px 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: color 0.3s ease
+    , background-color 0.3s ease;
+    width: 244px;
+  }
+
+  /* show mobile CTA when the mobile nav menu is open */
+  .mobile-nav-menu.is-open .mobile-gift-cta {
+    display: inline-flex;
+  }
+
+  /* sliding black overlay for mobile CTA to match desktop */
+  .mobile-nav-menu .mobile-gift-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #000;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.25s ease-in-out;
+    z-index: 0;
+    will-change: transform;
+  }
+
+  .mobile-gift-cta,
+  .mobile-gift-cta * {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+    z-index: 1;
+    transition: color 0.1s ease-in-out;
+  }
+
+  .mobile-gift-cta:hover,
+  .mobile-gift-cta:focus {
+    background-color: transparent;
+    color: #fff;
+  }
+
+  .mobile-gift-cta .mobile-gift-button {
+    color: inherit;
+  }
+
+  .mobile-gift-button {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20.48px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .mobile-gift-button span {
+    width: 100%;
+  }
+
+
+  @media screen and (min-width: 768px) {
+    .hamburger-menu {
+      display: none;
+    }
+
+    .mobile-nav-menu {
+      display: none;
+    }
+
+    .logo {
+      grid-area: left;
+      justify-self: start;
+    }
+
+    .gift-message {
+      display: block;
+      text-align: center;
+    }
+
+    .gift-cta {
+      display: inline-flex;
+      grid-area: right;
+      justify-self: end;
+      background-color: #fff544;
+      padding: 11px 25px;
+      cursor: pointer;
+      transition: color 0.3s ease
+      , background-color 0.3s ease;
+      width: clamp(207px, 13vw, 518px);
+      height: clamp(40px, 3.5vw, 118px);
+    }
+
+    .gift-button {
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      display: inline-flex;
+      gap: 10px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .gift-button span {
+      width: 100%;
+      font-size: clamp(14px, 1.4vw, 37px);
+      line-height: 19px;
+      font-weight: 400;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: Jost;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20.48px;
+      text-align: center;
+      color: #000;
+    }
+
+    .gift-button svg {
+      width: clamp(24px, 1.5vw, 60px);
+      height: auto;
+    }
+
+    /* sliding black overlay */
+    .gift-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: #000;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.25s ease-in-out;
+      z-index: 0;
+      will-change: transform;
+    }
+
+    .gift-cta,
+    .gift-cta * {
+      position: relative;
+      color: inherit;
+      text-decoration: none;
+      text-transform: uppercase;
+      z-index: 1;
+      transition: color 0.1s ease-in-out;
+    }
+
+    .gift-cta:hover,
+    .gift-cta:focus {
+      background-color: transparent;
+      color: #fff;
+    }
+
+    .gift-cta .gift-button {
+      color: inherit;
+    }
+
+    /* show/hide hamburger and close icons when menu is toggled */
+    .hamburger-button.is-open .icon-hamburger {
+      display: none;
+    }
+    .hamburger-button.is-open .icon-close {
+      display: inline-block;
+    }
+
+    /* hover/focus transform moved to a hover-capable media query below */
+    .gift-cta:focus-visible {
+      outline: 2px solid #000;
+      outline-offset: 2px;
+    }
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .gift-cta::before,
+    .gift-cta * {
+      transition: none !important;
+    }
+    .gift-cta:hover::before,
+    .gift-cta:focus::before {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Desktop-only hover (pointer: fine, supports hover) */
+  @media (hover: hover) and (pointer: fine) {
+    .gift-cta:hover::before,
+    .gift-cta:focus::before {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Touch & keyboard fallbacks: instant/snappier overlay */
+  .gift-cta:active::before,
+  .gift-cta:focus-within::before {
+    transform: scaleX(1);
+    transition-duration: 0.12s;
+  }
+
+  .gift-cta:focus-within {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    .header-bar-content {
+      padding: 10px 50px;
+    }
+
+    .gift-message p {
+      font-size: clamp(16px, 1.2vw, 42px);
+      line-height: 100%;
+    }
+
+    .gift-cta {
+      width: 233px;
+      height: 50px;
+    }
+  }
+  @media screen and (min-width: 1920px) {
+    .header-bar-content {
+      padding-top: clamp(10px, 1.2vw, 67px);
+      padding-bottom: clamp(10px, 1.2vw, 67px);
+    }
+
+    .gift-cta .gift-button span {
+      width: clamp(100px, 11vw, 295px);
+      font-size: clamp(14px, 1.4vw, 37px);
+    }
+
+    .gift-cta {
+      width: clamp(240px, 15vw, 518px);
+      height: clamp(40px, 3.5vw, 118px);
+    }
+
+    .gift-button svg {
+      width: clamp(24px, 1.5vw, 60px);
+      height: auto;
+    }
+
+
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Custom Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Custom Header"
+      },
+      {
+        "type": "image_picker",
+        "label": "Logo Image",
+        "id": "logo_image"
+      },
+      {
+        "type": "text",
+        "id": "gift_message",
+        "label": "Gift Message",
+        "default": "Find the ideal gift for your loved ones."
+      },
+      {
+        "type": "url",
+        "id": "gift_cta_link",
+        "label": "Gift CTA Link"
+      }, {
+        "type": "text",
+        "id": "gift_cta_text",
+        "label": "Gift CTA Text",
+        "default": "choose gift"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Header",
+        "category": "Header"
+      }
+    ]
+  }
+{% endschema %}
